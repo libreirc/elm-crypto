@@ -1,3 +1,6 @@
-elm-stuff
-elm.js
-node_modules
+# Elm dependencies
+/elm-stuff/
+/tests/elm-stuff/
+
+# NPM dependencies
+/node_modules/
