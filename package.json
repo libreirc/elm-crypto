@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "test": "cd tests && ./test.sh",
-    "install": "elm package install -y"
+    "test": "tests/run",
+    "install": "elm-package install -y"
   },
   "devDependencies": {
     "elm": "^0.16.0"
