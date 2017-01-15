@@ -1,17 +1,8 @@
 {
-  "name": "elm-random-secure",
-  "version": "0.0.0",
-  "description": "Cryptographic random number generation for Elm.",
   "scripts": {
-    "test": "cd tests && ./test.sh",
-    "install": "elm package install -y"
+    "test": "tests/run",
+    "install": "elm-package install -y"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/blacktaxi/elm-random-secure.git"
-  },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "elm": "^0.16.0"
   }
