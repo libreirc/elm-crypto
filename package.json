@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "tests/run",
+    "test": "elm-make",
     "install": "elm-package install -y"
   },
   "devDependencies": {
