@@ -1,16 +1,16 @@
-# elm-random-secure [![Build Status](https://travis-ci.org/blacktaxi/elm-random-secure.svg)](https://travis-ci.org/blacktaxi/elm-random-secure)
-
+elm-random-secure [![Build Status]][Travis CI]
+========
 Cryptographic random number generation for Elm.
 
-A simple wrapper around the [`window.crypto.getRandomValues`](https://developer.mozilla.org/en-US/docs/Web/API/RandomSource/getRandomValues)
-API to generate cryptographic random values in Elm.
+A simple wrapper around the [`window.crypto.getRandomValues`] API to generate
+cryptographic random values in Elm.
 
-## Example
+Example
+--------
+Random generation function return a [`Task`]. Depending on your use case, you
+might want to convert the task to an `Effects` or otherwise use it.
 
-Random generation function return a `Task`. Depending on your use case, you might want to convert
-the task to an `Effects` or otherwise use it.
-
-Assuming you're using [start-app](https://github.com/evancz/start-app), in your `update` function:
+Assuming you're using [evancz/start-app], in your `update` function:
 
 ```elm
 update : Action -> Model -> (Model, Effects Action)
@@ -28,7 +28,13 @@ update action model =
       ({ model | coin = coin }, Effects.none)
 ```
 
-### TODO
+TODO
+--------
+- [ ] Tests
+- [ ] Invalid argument handling
 
--   Tests
--   Invalid argument handling
+[Build Status]: https://travis-ci.org/openirc/elm-random-secure.svg?branch=master
+[Travis CI]: https://travis-ci.org/openirc/elm-random-secure
+[`window.crypto.getRandomValues`]: https://developer.mozilla.org/en-US/docs/Web/API/RandomSource/getRandomValues
+[`Task`]: http://package.elm-lang.org/packages/elm-lang/core/latest/Task
+[evancz/start-app]: https://github.com/evancz/start-app
