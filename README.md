@@ -25,6 +25,10 @@ update action model =
 |--------------|
 | [![Build Status]][Travis CI] |
 
+###### References
+- [Web Cryptography API] - W3C Editor’s Draft 24 October 2016
+- [Cryptographically secure random numbers in Elm] - Sergey Yavnyi
+
 <br>
 
 --------
@@ -37,6 +41,7 @@ license] and the [Apache License (Version 2.0)]. See [COPYRIGHT] for details.
 [`Cmd`]: http://package.elm-lang.org/packages/elm-lang/core/latest/Platform-Cmd
 [Build Status]: https://travis-ci.org/openirc/elm-crypto.svg?branch=master
 [Travis CI]: https://travis-ci.org/openirc/elm-crypto
+[Cryptographically secure random numbers in Elm]: http://reversemicrowave.me/blog/2016/03/04/elm-secure-random/
 [MIT license]: LICENSE-MIT
 [Apache License (Version 2.0)]: LICENSE-APACHE
 [COPYRIGHT]: COPYRIGHT
