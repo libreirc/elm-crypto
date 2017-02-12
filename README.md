@@ -1,4 +1,4 @@
-elm-random-secure [![Build Status]][Travis CI]
+elm-crypto [![Build Status]][Travis CI]
 ========
 Cryptographic random number generation for Elm.
 
@@ -38,11 +38,11 @@ TODOs
 <br>
 
 --------
-*elm-random-secure* is primarily distributed under the terms of both the [MIT
+*elm-crypto* is primarily distributed under the terms of both the [MIT
 license] and the [Apache License (Version 2.0)]. See [COPYRIGHT] for details.
 
-[Build Status]: https://travis-ci.org/openirc/elm-random-secure.svg?branch=master
-[Travis CI]: https://travis-ci.org/openirc/elm-random-secure
+[Build Status]: https://travis-ci.org/openirc/elm-crypto.svg?branch=master
+[Travis CI]: https://travis-ci.org/openirc/elm-crypto
 [`window.crypto.getRandomValues`]: https://developer.mozilla.org/en-US/docs/Web/API/RandomSource/getRandomValues
 [`Task`]: http://package.elm-lang.org/packages/elm-lang/core/latest/Task
 [evancz/start-app]: https://github.com/evancz/start-app

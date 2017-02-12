@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
-    "summary": "Sample webapp for openirc/elm-random-secure",
-    "repository": "https://github.com/openirc/elm-random-secure.git",
+    "summary": "Sample webapp for openirc/elm-crypto",
+    "repository": "https://github.com/openirc/elm-crypto.git",
     "license": "Apache-2.0/MIT",
     "source-directories": [
         ".",

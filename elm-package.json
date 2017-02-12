@@ -1,7 +1,7 @@
 {
     "version": "1.0.1",
     "summary": "Generate cryptographically random values",
-    "repository": "https://github.com/openirc/elm-random-secure.git",
+    "repository": "https://github.com/openirc/elm-crypto.git",
     "license": "Apache-2.0/MIT",
     "source-directories": [
         "src"
