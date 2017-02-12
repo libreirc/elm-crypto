@@ -1,9 +1,8 @@
-module CoinFlip where
+module CoinFlip exposing (main)
 
-import Effects exposing (Effects)
-import Signal exposing (Signal, Address)
+import Platform.Cmd exposing (Cmd)
 import Task exposing (Task)
-import StartApp
+import Html.App as App
 import Html exposing (..)
 import Html.Events exposing (..)
 
@@ -11,58 +10,43 @@ import Random.Secure
 
 type alias Model = { coin : Maybe Bool }
 
-type Action = Toss | Catch (Maybe Bool)
+type Msg = Toss | Catch Bool | Failed
 
-initModel : Model
-initModel = { coin = Nothing }
+init : (Model, Cmd Msg)
+init = ({ coin = Nothing }, Cmd.none)
 
-initAction : (Model, Effects Action)
-initAction = (initModel, Effects.none)
-
-update : Action -> Model -> (Model, Effects Action)
+update : Msg -> Model -> (Model, Cmd Msg)
 update action model =
   case action of
     Toss ->
-      ( model
-      , Random.Secure.bool
-          |> Task.toMaybe
-          |> Task.map Catch
-          |> Effects.task
-      )
+      let
+        errorToMsg = \_ -> Failed
+        contentToMsg = \value -> Catch value
+        cmd = Task.perform errorToMsg contentToMsg Random.Secure.bool
+      in (model, cmd)
+    Catch coin -> ({ model | coin = Just coin }, Cmd.none)
+    Failed ->
+      -- TODO: Error Handling
+      (model, Cmd.none)
 
-    Catch coin ->
-      ({ model | coin = coin }, Effects.none)
-
-view : Address Action -> Model -> Html
-view addr model =
+view : Model -> Html Msg
+view model =
   div [] <|
     case model.coin of
       Nothing ->
-        [ button
-            [ onClick addr Toss ]
-            [ text "Toss a coin..." ]
+        [
+          button [ onClick Toss ] [ text "Toss a coin..." ]
         ]
-
       Just coin ->
-        [ p
-            []
-            [ text <| if coin then "Heads!" else "Tails!" ]
-        , button
-            [ onClick addr Toss]
-            [ text "Toss again!" ]
+        [
+          p [] [ text <| if coin then "Heads!" else "Tails!" ],
+          button [ onClick Toss] [ text "Toss again!" ]
         ]
 
-app : StartApp.App Model
-app =
-  StartApp.start
-    { init = initAction
-    , update = update
-    , view = view
-    , inputs = []
-    }
-
-main : Signal Html
-main = app.html
-
-port tasks : Signal (Task.Task Effects.Never ())
-port tasks = app.tasks
+main = App.program
+  {
+    init = init,
+    update = update,
+    view = view,
+    subscriptions = \_ -> Sub.none
+  }
