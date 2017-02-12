@@ -33,8 +33,17 @@ TODO
 - [ ] Tests
 - [ ] Invalid argument handling
 
+<br>
+
+--------
+*elm-random-secure* is primarily distributed under the terms of both the [MIT
+license] and the [Apache License (Version 2.0)]. See [COPYRIGHT] for details.
+
 [Build Status]: https://travis-ci.org/openirc/elm-random-secure.svg?branch=master
 [Travis CI]: https://travis-ci.org/openirc/elm-random-secure
 [`window.crypto.getRandomValues`]: https://developer.mozilla.org/en-US/docs/Web/API/RandomSource/getRandomValues
 [`Task`]: http://package.elm-lang.org/packages/elm-lang/core/latest/Task
 [evancz/start-app]: https://github.com/evancz/start-app
+[MIT license]: LICENSE-MIT
+[Apache License (Version 2.0)]: LICENSE-APACHE
+[COPYRIGHT]: COPYRIGHT
