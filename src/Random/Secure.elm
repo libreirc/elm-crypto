@@ -23,14 +23,24 @@ implementation.
 # Lists of random values
 @docs ints, bools, floats
 
+# Type to indicate an error
+@docs Error
+
 -}
 
 import Native.SecureRandom
 import Task exposing (Task)
 
+{-| A type which represents an error.
+
+- `NoGetRandomValues`: Current running environment does not support [Web Cryptography API].
+- `Exception`: Arbitrary javascript exception has been occurred.
+
+[Web Cryptography API]: https://w3c.github.io/webcrypto/Overview.html
+-}
 type Error
   = NoGetRandomValues
-  | Exception String String
+  | Exception String String -- TODO: Rather than using arbitrary js exception as an error, let's be more specific
 
 {-| Generate a random 32-bit integer in a given range.
 
