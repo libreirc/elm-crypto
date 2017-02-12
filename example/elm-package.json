@@ -1,8 +1,8 @@
 {
     "version": "1.0.0",
-    "summary": "helpful summary of your project, less than 80 characters",
-    "repository": "https://github.com/user/project.git",
-    "license": "BSD3",
+    "summary": "Sample webapp for openirc/elm-random-secure",
+    "repository": "https://github.com/openirc/elm-random-secure.git",
+    "license": "Apache-2.0/MIT",
     "source-directories": [
         ".",
         "../src"

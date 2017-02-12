@@ -1,8 +1,8 @@
 {
     "version": "1.0.1",
     "summary": "Generate cryptographically random values",
-    "repository": "https://github.com/blacktaxi/elm-random-secure.git",
-    "license": "BSD3",
+    "repository": "https://github.com/openirc/elm-random-secure.git",
+    "license": "Apache-2.0/MIT",
     "source-directories": [
         "src"
     ],
