@@ -28,10 +28,12 @@ update action model =
       ({ model | coin = coin }, Effects.none)
 ```
 
-TODO
+TODOs
 --------
-- [ ] Tests
-- [ ] Invalid argument handling
+- [ ] Check if it fails gracefully with IE 10, IE 9, etc
+- [ ] Test automation
+- [ ] CI the sample app
+- [ ] Introduce `InvalidArgument` Error
 
 <br>
 

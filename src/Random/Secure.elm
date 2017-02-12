@@ -65,7 +65,7 @@ int from to =
 -}
 ints : Int -> Int -> Int -> Task Error (List Int)
 ints from to n =
-  -- @TODO how do we arg check here? do we throw errors in JS? Task.fail? etc?
+  -- TODO: Cause invalid argument error when the parametes doesn't make sense.
   Native.SecureRandom.getRandomInts (min 0 n)
   |> Task.map (List.map (compressInt from to))
 
