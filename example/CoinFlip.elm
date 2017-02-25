@@ -2,7 +2,6 @@ module CoinFlip exposing (main)
 
 import Platform.Cmd exposing (Cmd)
 import Task exposing (Task)
-import Html.App as App
 import Html exposing (..)
 import Html.Events exposing (..)
 
@@ -24,7 +23,12 @@ update action model =
   case action of
     Toss ->
       let
-        cmd = Task.perform Failed Catch Crypto.bool
+        resultToCmd : Result Crypto.Error Bool -> Msg
+        resultToCmd result = case result of
+          Ok boolean -> Catch boolean
+          Err error -> Failed error
+
+        cmd = Task.attempt resultToCmd Crypto.bool
       in (model, cmd)
     Catch coin -> ({ model | coin = Just coin }, Cmd.none)
     Failed error ->
@@ -58,7 +62,7 @@ view model =
       ul [] logs
     ]
 
-main = App.program
+main = Html.program
   {
     init = init,
     update = update,

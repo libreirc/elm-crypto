@@ -3,3 +3,7 @@
 
 # NPM dependencies
 /node_modules/
+
+# Build results of the sample app
+/example/elm-stuff/
+/example/index.html

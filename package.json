@@ -4,6 +4,6 @@
     "install": "elm-package install -y"
   },
   "devDependencies": {
-    "elm": "^0.17.1"
+    "elm": "^0.18.0"
   }
 }
