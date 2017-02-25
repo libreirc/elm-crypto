@@ -1,0 +1,5 @@
+#!/bin/bash
+cd "${0%/*}" &&\
+  ( cd .. && yarn ) &&\
+  ../node_modules/.bin/elm-make --yes CoinFlip.elm --output index.html &&\
+  python2 -m SimpleHTTPServer 8000
