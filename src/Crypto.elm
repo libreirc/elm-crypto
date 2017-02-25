@@ -1,4 +1,4 @@
-module Random.Secure exposing (Error(..), int, ints, bool, bools, float, floats)
+module Crypto exposing (Error(..), int, ints, bool, bools, float, floats)
 
 {-| A library for generating cryptographically random values.
 
@@ -28,7 +28,7 @@ implementation.
 
 -}
 
-import Native.SecureRandom
+import Native.Crypto
 import Task exposing (Task)
 
 {-| A type which represents an error.
@@ -56,7 +56,7 @@ Moreover, the quality of the produced output is dependent on
 -}
 int : Int -> Int -> Task Error Int
 int from to =
-  Native.SecureRandom.getRandomInt ()
+  Native.Crypto.getRandomInt ()
   |> Task.map (compressInt from to)
 
 {-| Generate a list of random 32-bit integers in a given range.
@@ -66,7 +66,7 @@ int from to =
 ints : Int -> Int -> Int -> Task Error (List Int)
 ints from to n =
   -- TODO: Cause invalid argument error when the parametes doesn't make sense.
-  Native.SecureRandom.getRandomInts (min 0 n)
+  Native.Crypto.getRandomInts (min 0 n)
   |> Task.map (List.map (compressInt from to))
 
 {-| Generate a random boolean value.
@@ -78,14 +78,14 @@ ints from to n =
 -}
 bool : Task Error Bool
 bool =
-  Native.SecureRandom.getRandomInt ()
+  Native.Crypto.getRandomInt ()
   |> Task.map (\x -> x % 2 == 0)
 
 {-| Generate a list of random boolean values.
 -}
 bools : Int -> Task Error (List Bool)
 bools n =
-  Native.SecureRandom.getRandomInts (min 0 n)
+  Native.Crypto.getRandomInts (min 0 n)
   |> Task.map (List.map (\x -> x % 2 == 0))
 
 {-| Generate a random floating point number in a given range.
@@ -94,7 +94,7 @@ bools n =
 -}
 float : Float -> Float -> Task Error Float
 float from to =
-  Native.SecureRandom.getRandomInt ()
+  Native.Crypto.getRandomInt ()
   |> Task.map (compressFloat from to)
 
 {-| Generate a list of random floating point numbers in a given range.
@@ -103,7 +103,7 @@ float from to =
 -}
 floats : Float -> Float -> Int -> Task Error (List Float)
 floats from to n =
-  Native.SecureRandom.getRandomInts (min 0 n)
+  Native.Crypto.getRandomInts (min 0 n)
   |> Task.map (List.map (compressFloat from to))
 
 compressInt : Int -> Int -> Int -> Int

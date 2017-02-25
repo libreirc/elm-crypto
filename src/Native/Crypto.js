@@ -1,4 +1,4 @@
-var _libreirc$elm_crypto$Native_SecureRandom = function() {
+var _libreirc$elm_crypto$Native_Crypto = function() {
 'use strict';
 
 
@@ -10,7 +10,7 @@ function fallback() {
     return _elm_lang$core$Native_Scheduler.nativeBinding(function(callback) {
       callback(
         _elm_lang$core$Native_Scheduler.fail(
-          _libreirc$elm_crypto$Random_Secure$NoGetRandomValues
+          _libreirc$elm_crypto$Crypto$NoGetRandomValues
         )
       );
     });
@@ -51,7 +51,7 @@ function makeFn(retrieve) {
 
         callback(
           _elm_lang$core$Native_Scheduler.fail(
-            A2(_libreirc$elm_crypto$Random_Secure$Exception, errorName, errorMessage)
+            A2(_libreirc$elm_crypto$Crypto$Exception, errorName, errorMessage)
           )
         );
         return;
