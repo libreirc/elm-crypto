@@ -16,7 +16,12 @@ update action model =
   case action of
     Toss ->
       let
-        cmd = Task.perform Failed Catch Crypto.bool
+        resultToCmd : Result Crypto.Error Bool -> Msg
+        resultToCmd result = case result of
+          Ok boolean -> Catch boolean
+          Err error -> Failed error
+
+        cmd = Task.attempt resultToCmd Crypto.bool
       in (model, cmd)
     Catch coin -> ({ model | coin = Just coin }, Cmd.none)
 ```
