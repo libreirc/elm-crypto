@@ -28,3 +28,5 @@ before_install:
 # Build
 script:
   - sysconfcpus -n 2 yarn test
+  - cd "$TRAVIS_BUILD_DIR"/example
+  - sysconfcpus -n 2 ../node_modules/.bin/elm-make --yes CoinFlip.elm
