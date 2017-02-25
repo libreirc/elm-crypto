@@ -1,5 +1,18 @@
 #!/bin/bash
-cd "${0%/*}" &&\
-  ( cd .. && yarn ) &&\
-  ../node_modules/.bin/elm-make --yes CoinFlip.elm &&\
-  python2 -m SimpleHTTPServer 8000
+
+# Change the working directory to the script's directory
+cd "${0%/*}" || exit 1
+
+# Install dependencies
+( cd .. && yarn ) || exit 1
+
+# Build the sample app
+../node_modules/.bin/elm-make --yes CoinFlip.elm || exit 1
+
+# Stop if '--build-only' option is given
+if [ "${BASH_ARGV[0]}" == "--build-only" ]; then
+  exit 0
+fi
+
+# Run the server
+python2 -m SimpleHTTPServer 8000
